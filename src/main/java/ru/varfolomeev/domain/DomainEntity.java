@@ -1,8 +1,10 @@
 package ru.varfolomeev.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.bson.Document;
 
+@JsonIgnoreProperties("_id")
 public abstract class DomainEntity {
     public Document toDocument() {
         return MapperWrapper.oMapper.convertValue(this, Document.class);
